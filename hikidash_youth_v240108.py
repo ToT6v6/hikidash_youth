@@ -314,25 +314,26 @@ def page3():
     st.sidebar.markdown('##### 나에게 맞는 정책과 정보를 찾아볼게요.')
     # 제목 넣기
     st.markdown('## 정책 찾기')
-
-    # 카테고리와 관련된 웹사이트 URL을 매핑
-    categories = {
-        "일자리 및 창업": "https://youth.seoul.go.kr/youthConts.do?key=2310100011&sc_pbancSeCd=003&sc_bbsStngSn=2212200001&sc_bbsCtgrySn=2310200004&sc_qnaCtgryCd=&sc_faqCtgryCd=011",
-        "주거": "https://youth.seoul.go.kr/content.do?key=2310100033",
-        "진로 및 교육": "https://youth.seoul.go.kr/content.do?key=2310200005",
-        "금융 및 생활지원": "https://youth.seoul.go.kr/youthConts.do?key=2310100061&sc_pbancSeCd=012&sc_bbsStngSn=2212200001&sc_bbsCtgrySn=2310200011&sc_qnaCtgryCd=004&sc_faqCtgryCd=005",
-        "마음 및 신체 건강": "https://youth.seoul.go.kr/youthConts.do?key=2310100076&sc_pbancSeCd=009&sc_bbsStngSn=2212200001&sc_bbsCtgrySn=2310200008&sc_qnaCtgryCd=&sc_faqCtgryCd=010",
-        "문화/예술": "https://youth.seoul.go.kr/youthConts.do?key=2310200023&sc_pbancSeCd=005&sc_bbsStngSn=2212200001&sc_bbsCtgrySn=2310200005&sc_qnaCtgryCd=&sc_faqCtgryCd=002",
-    }
-
-    # 각 카테고리에 대한 탭 생성
-    for category, url in categories.items():
-        st.link_button(category, url)
+    cols = st.columns(3)
+    with cols[0]:
+        # 카테고리와 관련된 웹사이트 URL을 매핑
+        categories = {
+            "일자리 및 창업": "https://youth.seoul.go.kr/youthConts.do?key=2310100011&sc_pbancSeCd=003&sc_bbsStngSn=2212200001&sc_bbsCtgrySn=2310200004&sc_qnaCtgryCd=&sc_faqCtgryCd=011",
+            "주거": "https://youth.seoul.go.kr/content.do?key=2310100033",
+            "진로 및 교육": "https://youth.seoul.go.kr/content.do?key=2310200005",
+            "금융 및 생활지원": "https://youth.seoul.go.kr/youthConts.do?key=2310100061&sc_pbancSeCd=012&sc_bbsStngSn=2212200001&sc_bbsCtgrySn=2310200011&sc_qnaCtgryCd=004&sc_faqCtgryCd=005",
+            "마음 및 신체 건강": "https://youth.seoul.go.kr/youthConts.do?key=2310100076&sc_pbancSeCd=009&sc_bbsStngSn=2212200001&sc_bbsCtgrySn=2310200008&sc_qnaCtgryCd=&sc_faqCtgryCd=010",
+            "문화/예술": "https://youth.seoul.go.kr/youthConts.do?key=2310200023&sc_pbancSeCd=005&sc_bbsStngSn=2212200001&sc_bbsCtgrySn=2310200005&sc_qnaCtgryCd=&sc_faqCtgryCd=002",
+        }
+    
+        # 각 카테고리에 대한 탭 생성
+        for category, url in categories.items():
+            st.link_button(category, url, use_container_width=True)
         
     ## -------------------------------------------------------------------------------------------
     
 
-    ## -------------------- ▼ 사이드 바를 구성해서 페이지 연결하기 ▼ -------------------- # 참고: https://luvris2.tistory.com/121
+    ## -------------------- ▼ 사이드 바를 구성해서 페이지 연결하기 ▼ -------------------- #
 
 # 선택한 페이지 함수에 대한 딕셔너리 생성
 page_functions = {'몽땅 톡톡': main_page, '나의 기록': page2, '정책을 찾아서': page3}
