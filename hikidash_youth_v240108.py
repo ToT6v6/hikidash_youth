@@ -318,19 +318,16 @@ def page3():
     # 카테고리와 관련된 웹사이트 URL을 매핑
     categories = {
         "일자리 및 창업": "https://youth.seoul.go.kr/youthConts.do?key=2310100011&sc_pbancSeCd=003&sc_bbsStngSn=2212200001&sc_bbsCtgrySn=2310200004&sc_qnaCtgryCd=&sc_faqCtgryCd=011",
-        "주거": "http://www.주거.com",
-        "진로 및 교육": "http://www.진로및교육.com",
-        "금융 및 생활지원": "http://www.금융및생활지원.com",
-        "마음 및 신체 건강": "http://www.마음및신체건강.com",
-        "문화/예술": "http://www.문화예술.com",
+        "주거": "https://youth.seoul.go.kr/content.do?key=2310100033",
+        "진로 및 교육": "https://youth.seoul.go.kr/content.do?key=2310200005",
+        "금융 및 생활지원": "https://youth.seoul.go.kr/youthConts.do?key=2310100061&sc_pbancSeCd=012&sc_bbsStngSn=2212200001&sc_bbsCtgrySn=2310200011&sc_qnaCtgryCd=004&sc_faqCtgryCd=005",
+        "마음 및 신체 건강": "https://youth.seoul.go.kr/youthConts.do?key=2310100076&sc_pbancSeCd=009&sc_bbsStngSn=2212200001&sc_bbsCtgrySn=2310200008&sc_qnaCtgryCd=&sc_faqCtgryCd=010",
+        "문화/예술": "https://youth.seoul.go.kr/youthConts.do?key=2310200023&sc_pbancSeCd=005&sc_bbsStngSn=2212200001&sc_bbsCtgrySn=2310200005&sc_qnaCtgryCd=&sc_faqCtgryCd=002",
     }
 
     # 각 카테고리에 대한 탭 생성
     for category, url in categories.items():
-        with st.expander(category):
-            if st.button('바로가기', key=category):
-                # 해당 URL로 이동
-                webbrowser.open_new_tab(url)
+        st.link_button(category, url)
         
     ## -------------------------------------------------------------------------------------------
     
