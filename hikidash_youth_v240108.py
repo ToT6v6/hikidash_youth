@@ -314,7 +314,7 @@ def page3():
     st.sidebar.markdown('##### 나에게 맞는 정책과 정보를 찾아볼게요.')
     # 제목 넣기
     st.markdown('## 정책 찾기')
-    cols = st.columns(3)
+    cols = st.columns(5)
     with cols[0]:
         # 카테고리와 관련된 웹사이트 URL을 매핑
         categories = {
