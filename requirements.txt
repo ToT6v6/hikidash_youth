@@ -1,0 +1,16 @@
+scikit-learn==1.2.2
+sentence-transformers==2.2.2
+streamlit-aggrid==0.3.4.post3
+streamlit-chat==0.1.1
+altair==5.1.2
+folium==0.14.0
+hydralit-components==1.0.10
+numpy
+pandas
+Pillow==9.4.0
+requests
+streamlit==1.29.0
+streamlit-elements==0.1.0
+streamlit-folium==0.15.0
+streamlit-option-menu==0.3.6
+streamlit-pills==0.3.0
