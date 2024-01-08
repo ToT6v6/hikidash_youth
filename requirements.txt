@@ -14,3 +14,4 @@ streamlit-elements==0.1.0
 streamlit-folium==0.15.0
 streamlit-option-menu==0.3.6
 streamlit-pills==0.3.0
+urlopen
