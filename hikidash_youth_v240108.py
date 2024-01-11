@@ -41,6 +41,7 @@ st.set_page_config(
 
 # ------------------------------ ▼ 챗봇 구성 ▼ ------------------------------------
 # Define a function to save the conversation to a CSV file 함수 - 사용자와 챗봇 간의 대화를 저장하는 함수
+@st.cache_data()
 def save_conversation(user_text, bot_text, filepath='conversation_history.csv'):
     # Check if the file exists
     if os.path.exists(filepath):
