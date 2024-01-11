@@ -39,42 +39,28 @@ st.set_page_config(
 
     
 
-# ------------------------------ ▼ 챗봇 구성 ▼ ------------------------------------
-# Define a function to save the conversation to a CSV file 함수 - 사용자와 챗봇 간의 대화를 저장하는 함수
-@st.cache_data()
-def save_conversation(user_text, bot_text, filepath='conversation_history.csv'):
-    # Check if the file exists
-    if os.path.exists(filepath):
-        mode = 'a' # append if already exists
-        header = False
-    else:
-        mode = 'w' # make a new file if not
-        header = True
+# # ------------------------------ ▼ 챗봇 구성 ▼ ------------------------------------
+# # Define a function to save the conversation to a CSV file 함수 - 사용자와 챗봇 간의 대화를 저장하는 함수
+# @st.cache_data()
+# def save_conversation(user_text, bot_text, filepath='conversation_history.csv'):
+#     # Check if the file exists
+#     if os.path.exists(filepath):
+#         mode = 'a' # append if already exists
+#         header = False
+#     else:
+#         mode = 'w' # make a new file if not
+#         header = True
     
-    # Define the data to be saved
-    data_to_save = {
-        'user': [user_text],
-        'bot': [bot_text],
-    }
+#     # Define the data to be saved
+#     data_to_save = {
+#         'user': [user_text],
+#         'bot': [bot_text],
+#     }
     
-    # Create a DataFrame and append it to the CSV
-    pd.DataFrame(data_to_save).to_csv(filepath, mode=mode, header=header, index=False)
+#     # Create a DataFrame and append it to the CSV
+#     pd.DataFrame(data_to_save).to_csv(filepath, mode=mode, header=header, index=False)
 
-# @st.cache_data() # 모델과 데이터셋을 캐싱하여 성능을 향상시킵니다.
-# def cached_model():
-#     model = SentenceTransformer('jhgan/ko-sroberta-multitask')
-#     return model
-
-# @st.cache_data() # 모델과 데이터셋을 캐싱하여 성능을 향상시킵니다.
-# def get_dataset():
-#     df = pd.read_csv('wellness_dataset.csv')
-#     df['embedding'] = df['embedding'].apply(json.loads)
-#     return df
-
-# model = cached_model()
-# df = get_dataset()
-
-# -----------------------------------------------------------------------------
+# # -----------------------------------------------------------------------------
 
     ## -------------------------------------------------------------------------------------
     
@@ -123,6 +109,25 @@ def main_page():
         st.session_state.generated.append(answer['챗봇'])
         
         # 대화내용 저장
+        @st.cache_data()
+        def save_conversation(user_text, bot_text, filepath='conversation_history.csv'):
+            # Check if the file exists
+            if os.path.exists(filepath):
+                mode = 'a' # append if already exists
+                header = False
+            else:
+                mode = 'w' # make a new file if not
+                header = True
+            
+            # Define the data to be saved
+            data_to_save = {
+                'user': [user_text],
+                'bot': [bot_text],
+            }
+            
+            # Create a DataFrame and append it to the CSV
+            pd.DataFrame(data_to_save).to_csv(filepath, mode=mode, header=header, index=False)
+
         save_conversation(user_input, answer['챗봇'])
 
     for i in range(len(st.session_state['past'])):
